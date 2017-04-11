@@ -1,11 +1,14 @@
+
 # Security Scripts
 
-A public collection of offensive and defensive security-related scripts.
+A collection of public offensive and defensive security related scripts. 
 
-Only run these in a controlled and authorized manner.
+Only run these in a controlled and authorized manner!
 
 # Copyright
 
-Original LICENSE notices have been whenever available.
+Whenever available, original copyright notices are preserved.
 
-Disagree? dmca-request (shift+F2) securitystreak.com
+Disagree? Please send an email to:
+
+dmca-request (shift+F2) securitystreak.com
