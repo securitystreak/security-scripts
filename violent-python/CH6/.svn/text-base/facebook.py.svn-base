@@ -1,0 +1,52 @@
+from violent_browser import Violent_Browser
+from BeautifulSoup import BeautifulSoup
+import re
+
+class Facebook():
+    def __init__(self, user_name, password):
+        self._browser = self.login(user_name, password)
+        pass
+    
+    def login(self, user_name, password):
+        browser = Violent_Browser()
+        browser.open('http://www.facebook.com')
+
+        #The first form is the login form
+        browser.select_form(nr = 0)
+        
+        #Add our login details
+        browser.form['email']= user_name
+        browser.form['pass']= password
+
+        #Submit login
+        browser.submit()
+        #Return the browser that is now logged in for use
+        return browser
+        
+    def get_information(self):
+        profile_page = self._browser.find_link(url_regex="profile")
+        page = self._browser.follow_link(profile_page).read()
+        
+        #Lives in follows pattern ["Lives in"][gibberish][link][Name of city][closing of link]
+        lives_in = re.compile('Lives in .*?">(.*?)</a>').findall(page)
+        #If found, use that location, else use error string
+        self.lives_in = lives_in[0] if lives_in else 'Location not listed'
+        
+        #Check if in a relationship
+        relationship_status_regex = re.compile('In a relationship').search(page)    
+        self.status = True if relationship_status_regex else False
+        
+        friends = {}
+        #Find friends
+        friends_on_page = re.compile('alt="(.*?)"').findall(page)
+        for friend in friends_on_page:
+            if not friends.has_key(friend):
+                friends[friend] = True
+        del friends['']
+        self.friends = friends.keys()
+        
+fb = Facebook('insanepyro07@yahoo.com', 'fr0$7yfacebookp@$$w0rd')
+fb.get_information()
+print fb.lives_in
+print fb.status
+print fb.friends

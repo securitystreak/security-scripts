@@ -1,0 +1,80 @@
+import violent_browser, urlparse, os, re
+from BeautifulSoup import BeautifulSoup
+
+class Violent_Mirror():
+    def __init__(self, mirror_dir = None):
+        #If browser is passed in, use that, otherwise make a new one
+        self.browser = violent_browser.Violent_Browser()
+        self.dir = mirror_dir if mirror_dir else ''        
+        
+    def save_page(self, html, dst):
+        f = open(dst, 'w')
+        f.write(html)
+        f.close()
+    
+    def rewrite_links(self, html, hostname):
+        soup = BeautifulSoup(html)
+        for link in soup.findAll(name='a'):
+            #If this is an href link, and hostname is found in the link
+            if link.has_key('href') and re.search(hostname, link['href']):
+                #Replace '/' with '_' like we do when saving to disk
+                link['href'] = link['href'].replace('/', '_') + '.html'
+                #Change http:__ to file:// for a valid link
+                link['href'] = link['href'].replace('http:__', 'file://')
+                
+        return soup.prettify()
+    
+    def get_imgs(self, html):
+        soup = BeautifulSoup(html)
+        #Find all 'img' html tags
+        image_tags = soup.findAll('img')
+        
+        for image in image_tags:
+            #Create the filename
+            filename = image['src'].lstrip('http://')
+            filename = os.path.join(self.dir, filename.replace('/', '_'))
+            
+            data = self.browser.open(image['src']).read()
+            
+            save = open(filename, 'wb')
+            save.write(data)
+            save.close()
+            
+            image['src'] = 'file://' + filename
+        return soup.prettify()
+    
+    def mirror(self, website, visited = []):
+        #Get the hostname of the website
+        hostname = urlparse.urlparse(website).hostname
+        filename = website.lstrip('http://')
+        filename = filename.replace('/', '_') + '.html'
+        
+        save_file_path = os.path.join(self.dir, filename)
+        response = self.browser.open(website)
+        source = response.read()
+
+        #Rewrite the links in source
+        source = self.rewrite_links(source, hostname)
+        source = self.get_imgs(source)
+
+        self.save_page(source, save_file_path)
+        
+        #Return to page after viewing images
+        self.browser.open(website)
+
+        #Mechanize method that can except a regex
+        #We pass in hostname so we don't get sent outside the site
+        try:
+            for link in self.browser.links(url_regex = hostname):
+                if link.url not in visited:
+                    visited.append(link.url) 
+                    #Scrape the page, and add to visited
+                    visited += self.mirror(link.url, visited)
+        except Exception, e:
+            pass
+        
+        #Return visited for trackign purposes
+        return visited
+
+v = Violent_Mirror('/home/frosty')
+v.mirror('http://www.violentpython.org')

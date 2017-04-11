@@ -1,0 +1,10 @@
+import mechanize
+from BeautifulSoup import BeautifulSoup
+
+b = mechanize.Browser()
+response = b.open('http://www.espn.com').read()
+
+soup = BeautifulSoup(''.join(response))
+
+allTags = soup.findAll(True)
+print [tag.name for tag in allTags]

@@ -1,0 +1,32 @@
+<script lang="javascript"> 
+<!-- 
+function subit(which) { 
+ if (which == 1) { 
+  document.myform.action = 'somepage.php?who=1'; 
+ } else if (which == 2) { 
+  document.myform.action = 'somepage.php?who=2'; 
+ } 
+ document.myform.submit(); 
+} 
+//--> 
+</script> 
+<form method="post" name="myform"> 
+User-name:
+<input type="text" name="username" value = ""> 
+
+<input type="button" value="check user avalibility" onClick="javascript:subit(1);"> 
+<br>
+Password: <input type="Password" name="pass" /> <br>
+
+First Name: <input type="text" name= "First" /> <br>
+Email: <input type="text" name= "email" /> <br>
+About: <input type="text" name= "About" /> <br>
+Date of birth <input type="text" name= "dateob" /> <br> 
+
+
+
+
+
+
+<input type="button" value="Submit" onClick="javascript:subit(2);"> 
+</form>

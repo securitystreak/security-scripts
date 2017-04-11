@@ -1,0 +1,29 @@
+<?php
+session_start();
+
+if ($_SESSION['userName']=='admin')
+{
+echo "THis is admin page";
+echo "<br />You were already logged in ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a>";
+
+}
+else
+{
+header("location: index.php");
+}
+?>
+<html>
+<body>
+
+<form action="inst.php" method="post">
+Add record<br>
+User-Name: <input type="text" name="user" />
+Password: <input type="text" name="pass" />
+
+<input type="submit" value= "Modify"/>
+</form>
+
+</body>
+</html>

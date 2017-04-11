@@ -1,0 +1,25 @@
+import urllib, web_common, urlparse, os, re
+
+def locate(tweet, cities):
+    tweet = tweet.lower()
+    words_in_tweet = tweet.split(' ')
+    for word in words_in_tweet:
+        if word in cities:
+            return word
+    return 'unknown'
+
+def load_cities(file_name):
+    cities = []
+    for line in open(file_name).readlines():
+        city = line.split(',')[3]
+        city = city.replace('"', '').lower()
+        cities.append(city)
+    return cities
+    
+cities = load_cities('/home/frosty/Desktop/GeoWorldMap/cities.txt')
+
+for result in query_twitter('from:ViolentPython since:2010-01-01'):
+    if result['geo'] != 'null':
+        print result['geo']
+    else:
+        print locate(result['tweet'], cities)

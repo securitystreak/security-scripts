@@ -1,0 +1,34 @@
+from violent_browser import Violent_Browser
+import json, urllib
+
+class Google_Result():
+    def __init__(self, title, text, url):
+        self.title = title
+        self.text = text
+        self.url = url
+    
+    #Will print the title of the result if someone calls print on the class
+    def __repr__(self):
+        return self.title
+    
+def google(search_term):
+    vb = Violent_Browser()
+    
+    search_term = urllib.quote_plus(search_term)
+    response = vb.open('http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' + search_term)
+
+    objects = json.load(response)
+
+    results = []
+    
+    for result in objects['responseData']['results']:
+        url = result['url']
+        title = result['titleNoFormatting']
+        text = result['content']
+        
+        new_gr = Google_Result(title, text, url)
+        results.append(new_gr)
+
+    return results
+
+print google('Black Cell')

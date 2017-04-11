@@ -1,0 +1,48 @@
+import violent_browser, re
+from BeautifulSoup import BeautifulSoup
+
+#A basic class to store information
+class Person():
+    def __init__(self, first_name, last_name, job = '', social_media = {} ):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.job = job
+        self.social_media = social_media
+        
+    def __repr__(self):
+        return self.first_name + ' ' + self.last_name + ' has job ' + self.job
+    
+
+def search_quark(page):
+    soup = BeautifulSoup(page)
+    soup.prettify()
+    #All people are inside of cells with class attribute 'peopletd'
+    people_cells = soup.findAll('td', attrs = {'class' : 'peopletd'} )
+    results = []
+    for cell in people_cells:
+        #Find person's name using BeautifulSoup's find method
+        name = cell.find('b').string
+        first_name = name.split(' ')[0]
+        last_name = name.split(' ')[1]
+        
+        #Find person's job using regular expression based on page formatting
+        job = re.compile('&nbsp;&nbsp;(.*?)\n').findall( cell.prettify() )
+        job = job[0] if job else "No career found"
+        
+         #Dictionary to hold social media information
+        social_media = {}
+        #Find all links
+        for link in cell.findAll('a'):
+     #Create new key/value pairs in dictionary, key is found using regex
+            media_name = re.compile('">(.*?)</a>').findall( str(link) )[0]
+            social_media[media_name] = link['href']
+    
+        results.append(new_person)
+        new_person = Person(first_name, last_name, job, social_media)
+    return results
+
+browser = violent_browser.Violent_Browser()
+#Get first page of results
+page = browser.open('http://www.quarkbase.com/people/' + 'espn.com').read()
+    
+print search_quark(page)

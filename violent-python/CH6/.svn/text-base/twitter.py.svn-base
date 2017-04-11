@@ -1,0 +1,27 @@
+import violent_browser, urllib, re
+
+def query_twitter(query):
+    #Urlencode 
+    query = urllib.quote_plus(query)
+    results = []
+    browser = violent_browser.Violent_Browser()
+    
+    response = browser.open('http://search.twitter.com/search.json?q=' + query).read()
+        
+    #Get the results out of the string returned from twitter
+    all_results = re.compile('"results"\:\[(.*?)\]').findall(response)[0]
+    #Split the long string into individual results
+    for result in all_results.split('},{'):
+        print result
+        try:
+            #Grab 3 important fields
+            new_result = {}
+            new_result['from_user'] = re.compile('"from_user_name"\:(.*?),').findall(result)[0]
+            new_result['geo'] = re.compile('"geo"\:(.*?),').findall(result)[0]
+            new_result['tweet'] = re.compile('"text"\:"(.*?)",').findall(result)[0]
+            results.append(new_result)
+        except:
+            pass
+    return results
+
+print query_twitter('from:ViolentPython since:2010-01-01')

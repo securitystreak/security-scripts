@@ -1,0 +1,24 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php
+
+$uname = $_POST['user'];
+
+
+$sql = "SELECT * FROM admin where (
+user = '".$uname."')";
+
+$qury = mysql_query($sql);
+
+if (mysql_num_rows($qury) != 0)
+{
+ echo "<br />User  Exist $uname";
+ }
+  else
+	{	
+      echo "<br />You can use this $uname name";
+      }

@@ -1,0 +1,36 @@
+import twitter, re, urllib2
+
+def find_interests(results):
+    interests = {}
+    
+    interests['links'] = []
+    interests['users'] = []
+    interests['hashtags'] = []
+    
+    for result in results:
+        tweet = result['tweet']
+        #Returns a tuple containing matches for these two regexes
+        #RE on the left matches links at the very end of the tweet
+        #RE on the right matches links not at the end
+        links = re.compile('(http.*?)\Z|(http.*?) ').findall(tweet)
+        
+        for link in links:
+            #If the first part matched
+            if link[0]: link = link[0]
+            #If the second part matched
+            elif link[1]: link = link[1]
+            #No part matched, go back to the top
+            else: continue
+            
+            response = urllib2.urlopen(link)
+            full_link = response.url
+            interests['links'].append(full_link)
+            
+            #\w matches a letter, number, or _
+        interests['users'] += re.compile('(@\w+)').findall(tweet)
+        interests['hashtags'] += re.compile('(#\w+)').findall(tweet)
+    return interests
+
+results = twitter.query_twitter('from:ViolentPython')
+i = find_interests(results)
+print i['links']

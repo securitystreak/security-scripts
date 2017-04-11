@@ -1,0 +1,16 @@
+import re
+from BeautifulSoup import BeautifulSoup
+
+link_finder = re.compile('href="(.*?)"')
+links = link_finder.findall(source)
+for link in links:
+    print link
+
+#Parse with beautiful soup
+#Create a soup
+soup = BeautifulSoup(source)
+#Get all links
+links = soup.findAll(name='a')
+for link in links:
+    if link.has_key('href'): 
+        print link['href']

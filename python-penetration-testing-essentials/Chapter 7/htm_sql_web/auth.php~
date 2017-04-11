@@ -1,0 +1,17 @@
+<?php
+session_start();
+
+if (isset($_SESSION['userName']))
+{
+echo "<br />THis is Home page Welcome $userName";
+echo "<br />You were already logged in ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a>";
+
+
+}
+else
+{
+header("location: index.php");
+}
+?>

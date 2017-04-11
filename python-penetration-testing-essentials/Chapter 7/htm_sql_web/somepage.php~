@@ -1,0 +1,7 @@
+<? 
+if ($_GET['who'] == 1) { 
+ echo "who equals 1"; 
+} else if ($_GET['who'] == 2) { 
+ echo "who equals 2"; 
+} 
+?>

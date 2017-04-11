@@ -1,0 +1,28 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php 
+session_start();
+include_once("auth.php") 
+           
+?>
+
+<html>
+<body>
+
+<form action="edit.php" method="post">
+Add record<br>
+First Name: <input type="text" name="First" /> <br>
+
+Email: <input type="text" name="Email" /><br>
+About your self: <input type="text" name="About" /><br>
+Date of birth: <input type="text" name="dateo" /><br>
+
+<input type="submit" value= "modify"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+import mechanize, cookielib, urlparse, os
+
+def create_browser():
+        #Create the basic browser object
+        browser = mechanize.Browser()
+        #Create a handler for cookies, this class can load and save cookies
+        cj = cookielib.LWPCookieJar()
+        #Add it to browser
+        browser.set_cookiejar(cj)
+        #Ignore robots.txt, so we don't miss anything while scraping
+        browser.set_handle_robots(False)
+        #Allow refresh redirections
+        browser.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+        #Add a user agent header to our browser
+        browser.addheaders = [('User-agent', ('Mozilla/5.0 (compatible; MSIE 9.0;'
+                                         'Windows NT 6.1; Trident/5.0)'))]
+        return browser

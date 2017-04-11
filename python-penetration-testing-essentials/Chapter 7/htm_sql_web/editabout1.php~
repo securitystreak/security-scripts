@@ -1,0 +1,18 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php 
+session_start();
+include_once("auth.php") 
+           
+?>
+<?php
+
+mysql_query("UPDATE admin SET datefb = '$_POST[dateo]' where user='".$_SESSION['userName']."'");
+
+header("location: home.php");
+
+?>

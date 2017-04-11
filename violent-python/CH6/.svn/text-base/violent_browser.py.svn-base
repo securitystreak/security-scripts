@@ -1,0 +1,40 @@
+import mechanize, cookielib, random
+
+class Violent_Browser(mechanize.Browser):
+    def __init__(self, proxies = [], user_agents = []):
+        #Initialize the parent browser
+        mechanize.Browser.__init__(self)
+        self.set_handle_robots(False)
+        
+        self.proxies = proxies
+        
+        self.user_agents = user_agents + ['Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; GTB5; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; Maxthon; InfoPath.1; .NET CLR 3.5.30729; .NET CLR 3.0.30618)', 
+                            'Mozilla/4.0 (compatible; MSIE 7.0; America Online Browser 1.1; Windows NT 5.1; (R1 1.5); .NET CLR 2.0.50727; InfoPath.1)', 
+                            'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)']
+        
+        self.anonymize()
+        
+    def clear_cookies(self):
+        cookie_jar = cookielib.LWPCookieJar()
+        self.set_cookiejar(cookie_jar)
+    
+    def change_user_agent(self):
+        index = random.randrange(0, len(self.user_agents) )
+        self.addheaders = [('User-agent', ( self.user_agents[index] ))]         
+            
+    def change_proxy(self):
+        if self.proxies:
+            index = random.randrange(0, len(self.proxies))
+            browser_proxy( {'http': self.proxies[index]} )
+        
+    def anonymize(self, sleep = False):
+        self.clear_cookies()
+        self.change_user_agent()
+        self.change_proxy()
+        
+        if sleep:
+            time.sleep(60)
+            
+vb = Violent_Browser()
+
+response = vb.open('http://espn.com')

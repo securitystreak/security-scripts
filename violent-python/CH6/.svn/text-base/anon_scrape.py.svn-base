@@ -1,0 +1,81 @@
+'''import mechanize, cookielib, urlparse, os, re, random, time
+
+def create_browser():
+        #Create the basic browser object
+        browser = mechanize.Browser()
+        #Create a handler for cookies, this class can load and save cookies
+        cj = cookielib.LWPCookieJar()
+        #Add it to browser
+        browser.set_cookiejar(cj)
+        #Ignore robots.txt, so we don't miss anything while scraping
+        browser.set_handle_robots(False)
+        #Allow refresh redirections
+        browser.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+        #Add a user agent header to our browser
+        browser.addheaders = [('User-agent', ('Mozilla/5.0 (compatible; MSIE 9.0;'
+                                         'Windows NT 6.1; Trident/5.0)'))]
+        return browser
+'''
+class Violent_Scraper():
+    def __init__(self, browser = None, mirror_dir = None, proxies = [], user_agents = []):
+        #If browser is passed in, use that, otherwise make a new one
+        self.browser = browser if browser else create_browser()
+        self.dir = mirror_dir if mirror_dir else ''
+        self.proxies = proxies
+        self.user_agents = user_agents + ['Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; GTB5; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; Maxthon; InfoPath.1; .NET CLR 3.5.30729; .NET CLR 3.0.30618)', 
+                            'Mozilla/4.0 (compatible; MSIE 7.0; America Online Browser 1.1; Windows NT 5.1; (R1 1.5); .NET CLR 2.0.50727; InfoPath.1)', 
+                            'Mozilla/4.0 (compatible; MSIE 8.0; AOL 9.6; AOLBuild 4340.5004; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)', 
+                            'Mozilla/5.0 (X11; U; Linux; de-DE) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.8.0', 
+                            'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; Avant Browser; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)',
+                            'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en; rv:1.9.2.14pre) Gecko/20101212 Camino/2.1a1pre (like Firefox/3.6.14pre)',
+                            'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/18.6.872.0 Safari/535.2 UNTRUSTED/1.0 3gpp-gba UNTRUSTED/1.0',
+                            'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/418.8 (KHTML, like Gecko, Safari) Cheshire/1.0.UNOFFICIAL',
+                            'Mozilla/5.0 (Windows; U; Windows NT 6.1; x64; fr; rv:1.9.2.13) Gecko/20101203 Firebird/3.6.13',
+                            'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)']
+        
+    def anonymize(self):
+        #If not using a proxy, do nothing
+        if self.proxies:
+            #Random number between 0 and the length of self.proxies
+            index = random.randrange(0, len(self.proxies) )
+            #Set self.browser's proxy to the randomly chosen proxy
+            self.browser.set_proxy( {'http': self.proxies[index]} )
+        
+        #Randomly choose a new user agent string
+        index = random.randrange(0, len(self.user_agents))
+        self.browser.addheaders = self.user_agents[index]
+        
+        #Clear cookies
+        cj = cookielib.LWPCookieJar()
+        browser.set_cookiejar(cj)
+        
+        time.sleep(60)
+'''
+    def save_page(self, html, dst):
+        dst = dst.lstrip('http://')
+        f = open(dst, 'w')
+        f.write(html)
+        f.close()
+            
+    def scrape(self, website, visited = []):
+        self.anonymize()
+        
+        #Get the hostname of the website
+        hostname = urlparse.urlparse(website).hostname
+        
+        save_file_path = os.path.join(self.dir, website+'.html')
+        source = self.browser.open(website).read()
+        self.save_page(source, save_file_path)
+        
+        #Mechanize method that can except a regex
+        #We pass in hostname so we don't get sent outside the site
+        for link in self.browser.links(url_regex = hostname):
+            if link not in visited: 
+                #Scrae the page, and add to visited
+                visited += self.scrape(link, visited)
+        
+        #Return visited for trackign purposes
+        return visited
+        
+v = Violent_Scraper()
+v.scrape('http://www.espn.com')'''

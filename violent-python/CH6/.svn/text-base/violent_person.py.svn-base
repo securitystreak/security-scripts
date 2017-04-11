@@ -1,0 +1,104 @@
+import json, urllib, re, urllib2
+from violent_browser import Violent_Browser
+
+class Violent_Person():
+    def __init__(self, first_name, last_name, job = '', social_media = {} ):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.job = job
+        self.social_media = social_media
+        
+    def __repr__(self):
+        return self.first_name + ' ' + self.last_name + ' has job ' + self.job
+    
+    def get_social(self, media_name):
+        if self.social_media.has_key(media_name):
+            return self.social_media[media_name]
+        
+        return None
+    
+    def get_tweets(self, handle):
+        #Urlencode 
+        query = urllib.quote_plus('from:' + handle + ' since:2009-01-01')
+        tweets = []
+        browser = Violent_Browser()
+        
+        #Note, .read() is not called on the response
+        response = browser.open('http://search.twitter.com/search.json?q=' + query)
+            
+        json_objects = json.load(response)
+        print json_objects
+        for result in json_objects['results']:
+            new_result = {}
+            new_result['from_user'] = result['from_user_name']
+            new_result['geo'] = result['geo']
+            new_result['tweet'] = result['text']
+            tweets.append(new_result)
+        return tweets
+    
+    def twitter_locate(self, tweets):
+        def load_cities():
+            cities = []
+            for line in open('/home/frosty/Desktop/GeoWorldMap/cities.txt').readlines():
+                city = line.split(',')[3]
+                city = city.replace('"', '').lower()
+                cities.append(city)
+            return cities
+        
+        locations = []
+        cities = load_cities()
+        
+        for tweet in tweets:
+            if tweet['geo'] != 'null': locations.append(tweet['geo'])
+            else:
+                text = tweet['tweet'].lower()
+                for word in text.split(' '):
+                    #Tweet mentioned a specific city
+                    if word in cities:
+                        locations.append(word)
+        return locations
+    
+    def find_interests(self, tweets):
+        interests = {}
+        
+        interests['links'] = []
+        interests['users'] = []
+        interests['hashtags'] = []
+        
+        for tweet in tweets:
+            text = tweet['tweet']
+            #Returns a tuple containing matches for these two regexes
+            #RE on the left matches links at the very end of the tweet
+            #RE on the right matches links not at the end
+            links = re.compile('(http.*?)\Z|(http.*?) ').findall(text)
+            
+            for link in links:
+                #If the first part matched
+                if link[0]: link = link[0]
+                #If the second part matched
+                elif link[1]: link = link[1]
+                #No part matched, go back to the top
+                else: continue
+                
+                response = urllib2.urlopen(link)
+                #Get the full link, not the shortened url provided by twitter
+                full_link = response.url
+                interests['links'].append(full_link)
+                
+                #\w matches a letter, number, or _
+            interests['users'] += re.compile('(@\w+)').findall(text)
+            interests['hashtags'] += re.compile('(#\w+)').findall(text)
+        return interests
+
+    def twitter(self):
+        handle = self.get_social('Twitter')
+        if not handle: return 'Error, no twitter handle known'
+        
+        tweets = self.get_tweets(handle)
+        locations = self.twitter_locate(tweets)
+        interests = self.find_interests(tweets)
+        
+        return {'tweets': tweets, 'locations' : locations, 'interests': interests}
+               
+vp = Violent_Person('Violent', 'Python', social_media = {'Twitter': 'ViolentPython'})
+vp.twitter()

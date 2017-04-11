@@ -1,0 +1,18 @@
+import smtplib
+
+class Email_Client():
+    def __init__(self, server_ip, server_port = 25):
+        self.server_ip = server_ip
+        self.server_port = 25
+        self.server = smtplib.SMTP(self.server_ip, self.server_port)
+        
+    def send_email(self, to_addr, from_addr, subject, text):
+        body_of_email = 'From: ' + from_addr + '\r\n'
+        body_of_email += 'To: ' + to_addr + '\r\n'
+        body_of_email += 'Subject: ' + subject + '\r\n'
+        body_of_email += text
+        
+        self.server.sendmail(from_addr, [to_addr], body_of_email)
+        
+client = Email_Client('173.255.204.159')
+client.send_email('frosty@unluckyfrosty.net', 'frosty@unluckyfrosty.net', 'Hi!', 'Hello')

@@ -1,0 +1,19 @@
+_john()
+{
+	local cur=${COMP_WORDS[COMP_CWORD]}
+	local prev=${COMP_WORDS[COMP_CWORD-1]}
+	case "$prev" in
+		--format)
+			COMPREPLY=($( compgen -W "bsdi md5 bf afs lm dynamic_n bfegg dmd5 dominosec epi hdaa ipb2 krb4 krb5 mschapv2 netlm netlmv2 netntlm netntlmv2 nethalflm md5ns nt phps po xsha crc32 gost keychain lotus5 md4-gen mediawiki mscash mscash2 mskrb5 mssql mssql05 mysql-sha1 mysql nsldap nt2 odf office oracle11 oracle osc phpass pix-md5 pkzip racf raw-md4 raw-md5 raw-sha1 raw-sha1-linkedin raw-md5u salted-sha1 sapb sapg sha1-gen sip vnc wbb3 hmac-md5 hmac-sha1 raw-sha raw-sha224 raw-sha256 raw-sha384 raw-sha512 hmac-sha224 hmac-sha256 hmac-sha384 hmac-sha512 xsha512 hmailserver sybasease dragonfly3-64 dragonfly4-64 dragonfly3-32 dragonfly4-32 drupal7 sha256crypt sha512crypt episerver keepass pwsafe django raw-sha1-ng crypt trip ssh pdf wpapsk rar zip dummy" -- $cur))
+		return 0
+		;;
+		--wordlist)
+			COMPREPLY=($( compgen -W "`ls /usr/share/wordlists`" -- $cur))
+		return 0
+		;;
+	esac
+	if [[ "$cur" == -* ]]; then
+		COMPREPLY=($( compgen -W "-i -s -u -w --shell --user --show --format --wordlist --incremental" -- $cur))
+	fi
+}
+complete -F _john john

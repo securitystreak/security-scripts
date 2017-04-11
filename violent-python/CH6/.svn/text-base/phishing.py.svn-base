@@ -1,0 +1,62 @@
+import violent_email, violent_person, random, re
+
+#Create an arbitrary person with our information in it
+person = violent_person.Violent_Person('Violent', 'Python', 'hacker', {'Twitter': 'ViolentPython'})
+person.location = 'Dr Evil Island, Pacific Ocean'
+person.twitter_mentions = ['AggressiveExploits']
+person.websites = ['http://www.secretsofinterest.com']
+person.relationship = False
+person.friends = ['Aggressive Exploits', 'Sally Fourth']
+person.links = [('Violent Pythonic Widgets Inc Loses a Trillion Dollars', 'www.awesomenewsaboutbadguys.com'),
+                ('Violent Pythonic Widgets Inc Sues Everyone',  'www.badnewshackers.com') ] 
+
+client = violent_email.Email_Client('133.713.371.337')
+
+def create_subject(person):
+    subject = 'All of our '
+    if person.relationship: subject += 'committed friends ' 
+    else: subject += 'single friends '
+    
+    subject += 'think this website about ' + person.job + "'s is awesome!"
+    return subject
+
+def create_sender(person):
+    index = random.randrange(0, len(person.friends))
+    name = person.friends[index]
+    name = re.sub(' ', '_', name)
+    name = name.lower()
+    
+    return name + '@legitimate_compay.com'
+    
+def create_body(person):
+    message = 'Just the other day I was browsing '
+    
+    if len(person.websites) > 0:
+        index = random.randrange(0, len(person.websites))
+        message += person.websites[index] + ' '
+    else:
+        message += ' the amazing website you mentioned '
+    
+    message += 'and I came across a recent story.  It mentioned that '
+    
+    if len(person.links) > 0:
+        index = random.randrange(0, len(person.links))
+        message += person.links[index][0] + '.  '
+    else:
+        ' your company hit a rough spot recently.  '
+        
+    message += "What's the deal with that?!? Well, anyway I saw more information "
+    
+    if person.location:
+        message += "about how it affects people in " + person.location + ' '
+        
+    message += ' at this awesome resource. ' 
+    message += '<a href="supermalicious.com" Great_News_Site.net>.'
+    message += 'Hope you are doing ok!'
+    
+    return message
+
+subject = create_subject(person)
+sender = create_sender(person)
+body = create_body(person)
+client.send_email('violentpython@violentpythonwidgets.com', sender, subject, body)

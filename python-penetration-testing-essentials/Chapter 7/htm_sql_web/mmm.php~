@@ -1,0 +1,31 @@
+
+
+<html>
+<body background="wel.jpg">
+
+<font size="50" face="sans-serif">Login</font>
+<br>
+<form action="submit.php" method="POST">
+
+<table-cellpadding="3" cellspacing="4" border="0">
+
+<tr>
+<td> Username:</td>
+<td><input type="text" name="name" /></td>
+</tr>
+
+<tr>
+<td> comment:</td>
+<td> <input type="text" name="comment" /> </td>
+</tr>
+<tr>
+<td> <input type="Submit" name="submit" value="login" /> </td>
+
+</tr>
+</table>
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+<head>
+<html>
+<meta http-equiv="refresh" content="10" />
+</head>
+<body>
+<p>
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php
+session_start();
+
+if (isset($_SESSION['userName']))
+{
+echo "<br />THis is Home page Welcome $userName";
+echo "<br />You were already logged in ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a>";
+
+}
+else
+{
+header("location: index.php");
+}
+?>
+<?php
+
+$s = "SELECT count(*) FROM admin". "WHERE
+ user = '".$_SESSION['userName']."' ";
+
+
+$q = mysql_query($s);
+$row = mysql_fetch_array($q);
+?>
+
+
+First name: = <?php echo $row['First_name']; ?> <br>
+Email = <?php echo $row['email']; ?> <br>
+Date of birth = <?php echo $row['datefb']; ?> <br>
+About you = <?php echo $row['About']; ?> <br>
+</p>
+</body>
+</html>
+

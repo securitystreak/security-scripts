@@ -1,0 +1,13 @@
+import urllib2, mechanize
+
+#Open the page
+page = urllib2.urlopen('violentpython.org')
+#source_code will be a list of strings containing the lines of source code
+source_code = page.read()
+
+#Create a browser object
+browser = mechanize.Browser()
+#Open the page
+page = browser.open('violentpython.org')
+#View the source code
+source_code = page.read()

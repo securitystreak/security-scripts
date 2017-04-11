@@ -1,0 +1,32 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php 
+session_start();
+include_once("auth.php") 
+           
+?>
+
+
+<html>
+<body>
+
+<form action="editname.php" method="post">
+<br>
+First Name: <input type="text" name="First" /> <br>
+
+<input type="submit" value= "modify"/>
+</form>
+
+</body>
+</html>
+<?php
+
+mysql_query("UPDATE admin SET First_name = '$_POST[First]' where user='".$_SESSION['userName']."'");
+
+header("location: home.php");
+
+?>
