@@ -1,0 +1,21 @@
+ <?php 
+
+
+include_once("connect.php"); ?>
+<?php
+session_start();
+
+session_unset();
+
+session_destroy();
+
+if($_SESSION['userName']=="")
+{
+echo "Successfully logger out!<br/>";
+location
+}
+else
+{
+echo "Error Occured !!<br />";
+}
+?>

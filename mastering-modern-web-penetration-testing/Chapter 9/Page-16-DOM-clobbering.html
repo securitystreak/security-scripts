@@ -1,0 +1,12 @@
+  <!DOCTYPE html>
+   <html>
+   <head>
+   <title>DOM Clobbering</title>
+   </head>
+   <body>
+   <form id="document" body="blahblah"></form>
+   <script type="text/javascript">
+   alert(document.body);
+   </script>
+   </body>
+   </html>

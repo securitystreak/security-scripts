@@ -1,0 +1,23 @@
+<?php 
+
+include_once("connect.php") 
+  // htmlspecialchars($row['name'])          
+?>
+
+<?php
+
+$result = mysql_query("SELECT * from comment");
+//Table starting tag and header cells
+echo "<table border='1'><tr><th>Name</th><th>Comment</th></tr>";
+while($row = mysql_fetch_array($result)){
+   //Display the results in different cells
+   echo "<tr><td>" . $row['name']. "</td><td>" . htmlspecialchars($row['comment']) . "</td></tr>";
+}
+//Table closing tag
+echo "</table>";
+?>
+<html>
+<body>
+<font size= 4> New Comment</font> <a href="index.php"> Click here</a>
+</body>
+</html>

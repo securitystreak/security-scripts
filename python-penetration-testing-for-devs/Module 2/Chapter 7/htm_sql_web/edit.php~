@@ -1,0 +1,39 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php 
+session_start();
+include_once("auth.php") 
+           
+?>
+<?php
+
+if('$_POST[First]')
+{
+$sd = '$_POST[First]';
+$ed = 'First_name';
+}
+elseif('$_POST[Email]')
+{
+$sd = '$_POST[Email]';
+$ed = email;
+}
+elseif('$_POST[About]')
+{
+$sd = '$_POST[About]';
+$ed = About;
+}
+else
+{
+$sd = '$_POST[dateo]' ;
+$ed =  datefb;
+}
+mysql_query("UPDATE admin SET $ed = $sd where user='".$_SESSION['userName']."'");
+
+header("location: home.php");
+
+?>
+

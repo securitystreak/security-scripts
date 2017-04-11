@@ -1,0 +1,104 @@
+************************************************************************ Covering our tracks************************************************************************ Look at the entire history of the commands that were used
+more ~/.bash_history
+
+************************************************************************ Wiping logs***********************************************************************
+
+* Wipe the logs within windows
+meterpreter > clearev
+
+* Delete logs manually
+c:\del %WINDR%\*.log /a/s/q/f
+
+* Delete file within Linux
+rm FILE.txt
+
+* Empty file within Linux
+> /path/to/file
+
+* Install gedit
+apt-get install gedit
+
+* Start gedit
+gedit
+
+* Verify log file has entries in it
+more ~/.bash_history
+
+* Verify the number of stored commands in the history file
+echo $HISTSIZE
+
+* Erase the history by setting the amount to 0
+export HISTSIZE=0
+
+* Shred the bash_history file
+shred -zu /root/.bash_history
+
+* Verify that the bash_history file is empty
+less /root/.bash_history
+
+************************************************************************ Using ProxyChains***********************************************************************
+
+* Install Proxychains
+apt-get install proxychains
+
+* Syntax of Proxychains
+proxychains <command you want tunneled and proxied> <opt args>
+
+* Command to use run nmap scan via proxychains
+root@kali:~# proxychains nmap 192.168.245.0/24************************************************************************ Clearing the data off the Raspberry Pi************************************************************************ Wipe microSD card via dd
+dd if=/dev/urandom of=/dev/sda1 (where sda1 is your microSD card)
+
+* Reformat the whole microSD card
+mkfs.ext4 /dev/sda1 ( where sda1 is your microSD card )
+
+************************************************************************ Using ImageMagick***********************************************************************
+
+* Install ImageMagick
+sudo apt-get install imagemagick
+
+* To initiate the screenshot
+import screenshot.png
+
+* To view your screenshot
+eog /root/screenshot.png
+
+* To capture a Raspberry Pi VNC session
+sleep 5s; import -window root screenshot.png
+
+* To take a screenshot of the entire screen
+import -window root
+
+************************************************************************ Using Shutter***********************************************************************
+
+* Install Shutter
+sudo apt-get install shutter
+
+* To run shutter
+shutter
+
+************************************************************************ Compressing files with Zip/Uzip***********************************************************************
+
+* Learn about both zip and unzip
+tar -help
+man tar
+man gzip
+
+* Install zip
+apt-get install zip
+
+* Unzip files
+unzip Stolen.zip VictimData.doc
+
+************************************************************************ Using File Roller***********************************************************************
+
+* Install file-roller
+apt-get install file-roller
+
+************************************************************************ Using Split***********************************************************************
+
+* To run split
+split <size of each file> <file to be split> <name of split files>.
+
+* To combine a bunch of files into a single file
+cat Breakupa[a-c] > VictimData
+

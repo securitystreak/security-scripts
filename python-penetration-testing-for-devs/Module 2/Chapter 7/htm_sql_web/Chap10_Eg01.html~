@@ -1,0 +1,81 @@
+<HMTL>
+	<HEAD><TITLE>FORMS</TITLE>
+
+
+<Title>Validating Form
+</Title>
+<Script Language="JavaScript">
+function validation()
+{
+if(document.f1.user.value.length<1)
+{
+alert("Enter your name");
+return false;
+}
+if(document.f1.pass.value.length<2)
+{
+alert("Enter your Password.");
+return false;
+}
+if(document.f1.First.value.length<1)
+{
+alert("Enter your First Name");
+return false;
+}
+
+if(document.f1.email.value.length<1)
+{
+alert("Enter your E-mail");
+return false;
+}
+
+if(document.f1.dateob.value.length<1)
+{
+alert("Enter your Date of Birth");
+return false;
+}
+
+return true;
+}
+</Script>
+</Head>
+
+
+
+
+
+
+<!-- The code allows to access the Form objects Elements Array //-->
+	
+	
+	<BODY>
+
+
+<H1>Register YourSelf Today!!!</H1>
+
+
+Verify Your user name
+		<FORM Name="Survey Form 1">
+			FIRST FORM: <I><B>Survey Form 1 </B></I><BR><BR>
+			First Name : <INPUT Name="Text1" Type="Text" Value=""><BR><BR>
+			
+			<INPUT Name="Button1" onClick="Ver(form)" Type="Button" Value="Click1">
+		</FORM>
+		
+<Form name="f1" onSubmit=validation() action="process.php" method="POST">
+<P>
+User-Name: <input type="text" name="user" />   <br>
+
+<br>
+Password: <input type="Password" length="20" name="pass" /> <br>
+
+First Name: <input type="text" length="20" name= "First" /> <br>
+Email: <input type="text" length="20" name= "email" /> <br>
+About: <input type="text" length="20" name= "About" /> <br>
+Date of birth <input type="text" length="20" name= "dateob" /> <br> 
+
+<input type="submit" value= "Register"/>
+
+</Form>
+	</BODY>
+</HTML>

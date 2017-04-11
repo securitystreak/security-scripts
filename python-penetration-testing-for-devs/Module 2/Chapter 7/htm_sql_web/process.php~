@@ -1,0 +1,36 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+
+
+<?php
+if($_POST['agree'] == 'Agree') 
+{
+	$uname = $_POST['user'];
+
+
+$sql = "SELECT * FROM admin where (
+user = '".$uname."')";
+
+$qury = mysql_query($sql);
+
+echo "<br />User  Exist" $qury ;
+
+if (mysql_num_rows($qury) != 0)
+{
+ echo "<br />User  Exist $uname";
+ }
+  else
+	{	
+      echo "<br />You can use this $uname name";
+      }
+}
+else {
+
+$username = $_POST['user'];
+	echo "<br />THis is not Home page Welcome $username";
+}
+?>

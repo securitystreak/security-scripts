@@ -1,0 +1,20 @@
+{
+  "title": "Learning Python Forensics",
+  "authors": "Preston Miller & Chapin Bryce",
+  "publisher": "Packt Publishing",
+  "pageCount": 500,
+  "numberOfChapters": 13,
+  "chapters":
+  [
+   {
+    "chapterNumber": 1,
+    "chapterTitle": "Now for Something Completely Different",
+    "pageCount": 30
+   },
+   {
+    "chapterNumber": 2,
+    "chapterTitle": "Python Fundamentals",
+    "pageCount": 25
+   }
+  ]
+}

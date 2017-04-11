@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+   <html>
+   <head>
+     <meta charset="utf-8">
+     <title>SOP Demo</title>
+   </head>
+   <body>
+     <iframe src="http://example.com" name="demo"></iframe>
+     <script>
+     document.getElementsByName('demo')[0].onload = function() {
+       try {
+         console(frames[0].hostname)
+} catch(e) {
+  console.log(e);
+}}
+  </script>
+</body>
+</html>

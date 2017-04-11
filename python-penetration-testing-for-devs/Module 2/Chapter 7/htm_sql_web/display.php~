@@ -1,0 +1,53 @@
+
+
+
+
+
+<?php 
+include_once("connect.php") 
+?>
+
+<?php
+
+session_start();
+
+if ($_SESSION['userName']=='admin')
+{
+echo "THis is admin page";
+echo "<br />Welcome ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a></br>";
+
+
+mysql_select_db("login");
+
+$result = mysql_query("SELECT * FROM users);
+
+echo "<table border='1'>
+<tr>
+<th>ID</th>
+<th>User-name</th>
+<th>Password</th>
+</tr>";
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['id'] . "</td>";
+  echo "<td>" . $row['user'] . "</td>";
+  echo "<td>" . $row['pass'] . "</td>";	
+  echo "</tr>";
+  }
+echo "</table>";
+
+
+}
+else
+{
+header("location: index.php");
+}
+?>
+<html><body> <br> <b>Do u want to add more record  <b> <a href ="admin.php">click here</a></body></html>
+
+
+

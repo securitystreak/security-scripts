@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE student [
+   <!ENTITY oops SYSTEM "file:///dev/random">
+]>
+<student>
+<name>&oops;</name>
+</student>

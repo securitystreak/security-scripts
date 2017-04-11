@@ -1,0 +1,44 @@
+<?php 
+session_start();
+include_once("connect.php") 
+?>
+
+
+<?php
+
+$uname = $_POST['user'];
+$mail = $_POST['email'];
+
+$sql = "SELECT * FROM admin where (
+user='".$uname."' or email='".$mail."')";
+
+
+$qury = mysql_query($sql);
+
+if (mysql_num_rows($qury) != 0)
+{
+ echo "<br />User or Email already used";
+ }
+  else
+	{	
+      
+      
+
+
+session_start();
+$uname = $_POST['user'];
+
+mysql_select_db("begin");
+$e=mysql_query("INSERT INTO admin (user, pass, First_name, email, About, datefb)
+VALUES
+('$_POST[user]','$_POST[pass]','$_POST[First]','$_POST[email]','$_POST[About]','$_POST[dateob]')");
+
+
+$_SESSION['userName'] =  $uname ;
+
+
+header("location: home.php");
+}
+
+?>
+

@@ -1,0 +1,44 @@
+<?php 
+
+include_once("connect.php") 
+           
+?>
+
+<?php
+session_start();
+
+if ($_SESSION['userName']=='admin')
+{
+echo "THis is admin page";
+echo "<br />Welcome ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a></br>";
+
+
+mysql_select_db("login");
+
+
+$sql="INSERT INTO users (user, pass)
+VALUES
+('$_POST[user]','$_POST[pass]')";
+
+if (!mysql_query($sql))
+  {
+  die('Error ohh: ' . mysql_error());
+  }
+echo " 1 record added";
+
+
+}
+else
+{
+header("location: index.php");
+}
+?>
+
+<html><body> <br> <b>Do u want to add more record  <b> <a href ="ins.php">click here</a></body></html><br>
+<html><body> <br> <b>Admin Page <b> <a href ="admin.php">click here</a></body></html>
+
+
+
+

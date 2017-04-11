@@ -1,0 +1,77 @@
+
+<head>
+<html>
+<meta http-equiv="refresh" content="10" />
+</head>
+<body>
+<p>
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php
+session_start();
+
+if (isset($_SESSION['userName']))
+{
+echo "<br />THis is Home page Welcome $userName";
+echo "<br />You were already logged in ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a>";
+
+}
+else
+{
+header("location: index.php");
+}
+?>
+
+<?php
+
+$result = mysql_query("SELECT * FROM admin where user='".$_SESSION['userName']."' ");
+
+
+
+
+while($row = mysql_fetch_array($result))
+  {
+echo "<br />";
+echo "MY ID = ";
+
+  echo   $row['id'] ;
+echo "<br />";
+
+echo "My Name = ";
+  echo  $row['First_name'] ;
+
+
+echo "<br />";
+
+echo "MY Email = ";
+  echo   $row['email']  ;
+
+echo "<br />";
+
+echo "About MySelf = ";
+  echo   $row['About']  ;
+
+
+echo "<br />";
+
+echo "Date of Birth = ";
+  echo  $row['datefb']  ;
+
+
+echo"<a href='homen.php'> Do you want to EDIT your profile click here...</a>";  		
+
+  }
+
+
+?>
+
+</p>
+</body>
+</html>
+

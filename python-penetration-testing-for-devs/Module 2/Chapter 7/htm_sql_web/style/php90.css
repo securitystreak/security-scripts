@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+font-family: "trebuchet ms", verdana, sans-serif;
+font-size: 12px;
+line-height: 1.5em;
+color: #333;
+background: #ffffff;
+margin: 0;
+padding: 0;
+text-align: center;
+width: 100%;
+}
+
+#header {
+top: 0px;
+left: 0px;
+height: 100px;
+width: 100%;
+background: #333;
+padding-top: 8px;
+}
+
+#header h1 {
+font-size: 30px;
+text-transform: uppercase;
+letter-spacing: 0.3em;
+color: #fff;
+}
+
+
+#menu {
+font-family: "trebuchet ms", verdana, sans-serif;
+font-size: 14px;
+font-weight: bold;
+height: 40px;
+left: 0px;
+width: 100%;
+padding: 0px;
+color: #000000;
+background-color: #eee;
+}
+#menu ul {
+	margin: 0;
+	padding-left: 0;
+	margin-left: 0;
+	background: url(../images/menu_bg.jpg) repeat-x left top;
+	color: White;
+	float: left;
+	width: 100%;
+	height:40px;	
+}
+#menu ul li {  
+	display: inline;
+	color:#ffffff;	
+}
+#menu ul li a {
+	padding:14px 29px 0 17px;
+	background: url(../images/menu_bg.jpg) repeat-x left top;
+	color: #ffffff;
+	text-decoration: none;
+	float: left;
+	font-size:18px;
+	height:30px;
+}
+#menu ul li a:hover {
+	background: url(../images/menu_hvr.jpg) repeat-x left top;
+	color: #fff;
+	height:30px;
+}
+
+#bar {
+border:thin 0px;
+float: left;
+/*width: 10%;*/
+background: #eee;
+border:1px solid;
+height: 370px;
+}
+#bar ul li {
+	list-style:none;
+	list-style-position:inside;		
+}
+#bar ul li a {	
+	padding:10px 1px 0 1px;
+	background: url(../images/menu_bg.jpg) repeat-x left top;
+	color: #ffffff;
+	text-decoration: none;
+	float: left;
+	/*position:relative;*/
+	font-size:20px;
+	margin:0px;
+	width:120px;
+	height:40px;
+}
+#bar ul li a:hover {
+	background: url(../images/menu_hvr.jpg) repeat-x left top;
+	color: #fff;
+	margin:0px;
+	width:120px;
+	height:40px;
+}
+#bar p {
+font-size: 12px;
+font-weight:bold;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+}
+
+#main {
+float: left;
+border:0px solid;
+margin:0px;
+/*margin: 15px 15px 15px 240px;*/
+padding: 5px 5px 5px 0px;
+background: #FFFFFF;
+width:63%;
+}
+#adds {
+border:thin 3px;
+float: left;
+width: 13%;
+background: #eee;
+border:1px solid;
+height: 100%;
+}
+#footer {
+float:left;
+background: url(../images/footer_bg.jpg) repeat-x left top;
+font-family: "trebuchet ms", verdana, sans-serif;
+font-size: 14px;
+font-weight: normal;
+height: 20px;
+left: 0px;
+width: 92%;
+color: #000000;
+background-color: #eee;
+}
+#footer ul {
+	color: White;
+	float: left;
+	width: 100%;
+	height:40px;	
+}
+#footer ul li {  
+	display: inline;
+	color:#ffffff;	
+}
+#footer ul li a {
+	padding:20px 20px 20px 30px;	
+	color: #ffffff;
+	text-decoration: none;
+	float: left;
+	font-size:12px;
+	height:40px;
+}
+#footer ul li a:hover {	
+	color: #FF0000;
+	text-decoration: underline;
+	height:40px;
+}

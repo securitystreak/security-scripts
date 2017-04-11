@@ -1,0 +1,11 @@
+xlsxwriter
+colorama
+python-registry == 1.1.0
+pyfiglet
+mutagen
+pillow
+simplekml
+tqdm
+unicodecsv
+jinja2
+lxml

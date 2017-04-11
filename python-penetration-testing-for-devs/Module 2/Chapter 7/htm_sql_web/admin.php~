@@ -1,0 +1,25 @@
+<head>
+
+<meta http-equiv="refresh" content="10" />
+</head>
+
+<?php
+session_start();
+
+if ($_SESSION['userName']=='admin')
+{
+echo "THis is admin page";
+echo "<br />You were already logged in ".$_SESSION['userName'].".";
+
+echo"<br /><a href='logout.php'>LOGOUT</a>";
+echo"<br /><a href='ins.php'>INSERT Record</a>";
+echo"<br /><a href='display.php'>To display Record</a>";
+
+}
+else
+{
+header("location: index.php");
+}
+?>
+
+

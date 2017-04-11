@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <authors>Preston Miller &amp; Chapin Bryce</authors>
+  <chapters>
+   <element>
+     <chapterNumber>1</chapterNumber>
+     <chapterTitle>Now for Something Completely Different</chapterTitle>
+     <pageCount>30</pageCount>
+   </element>
+   <element>
+     <chapterNumber>2</chapterNumber>
+     <chapterTitle>Python Fundamentals</chapterTitle>
+     <pageCount>25</pageCount>
+   </element>
+  </chapters>
+  <numberOfChapters>13</numberOfChapters>
+  <pageCount>500</pageCount>
+  <publisher>Packt Publishing</publisher>
+  <title>Learning Python for Forensics</title>
+</root>

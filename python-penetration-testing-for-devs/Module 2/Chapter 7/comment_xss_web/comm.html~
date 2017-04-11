@@ -1,0 +1,67 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+</head><body background="comm.php_files/wel.jpg"><p>
+
+<br>THis is Comment page <br><b>Enter your views</b> </p><h2>mohit</h2><br><a href="http://192.168.0.5/logout.php">LOGOUT</a>
+
+
+
+
+<h1>Leave your Comments </h1>
+<br>
+<form name="sample" action="submit.php" onsubmit="return validateForm()" method="post">
+
+<table-cellpadding="3" cellspacing="4" border="0">
+
+
+
+
+ <p class="\&quot;req\&quot;">
+<b><font size="4">Comments</font> </b> </p> 
+
+ <textarea class="\&quot;formtext\&quot;" tabindex="4" name="comment" rows="10" cols="50"></textarea>
+
+
+
+
+
+
+
+ <input name="submit" value="Submit" type="submit"> 
+
+
+
+
+<br>
+
+<font size="4"><a href="http://192.168.0.5/dis.php"> Old comments </a> 
+
+
+<script language="JavaScript">
+    <!-- Hide code from non-js browsers
+    function validateForm()
+    {
+        formObj = document.sample;
+
+
+if(formObj.comment.value.length<1)
+{
+alert("Enter your comment.");
+return false;
+}
+
+
+      
+    }
+    // end hiding -->
+</script>
+
+
+
+
+
+
+</font><p></p>
+</table-cellpadding="3"></form></body></html>

@@ -1,0 +1,23 @@
+<?php 
+session_start();
+include_once("connect.php") 
+           
+?>
+
+<?php 
+session_start();
+include_once("auth.php") 
+           
+?>
+
+<html>
+<body>
+
+<form action="edit.php" method="post">
+<br>
+About your self: <input type="text" name="About" /><br>
+<input type="submit" value= "modify"/>
+</form>
+
+</body>
+</html>

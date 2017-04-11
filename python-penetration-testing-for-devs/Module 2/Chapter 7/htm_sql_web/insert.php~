@@ -1,0 +1,18 @@
+<?php
+session_start();
+
+if ($_SESSION['userName']=='admin')
+{
+echo "welcome ".$_SESSION['userName']."in insertion page";
+
+echo"<br /><a href='admin.php'>HOME</a>";
+
+echo"<br /><a href='logout.php'>LOGOUT</a>";
+
+
+}
+else
+{
+header("location: index.php");
+}
+?>

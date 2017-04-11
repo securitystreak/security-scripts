@@ -1,0 +1,21 @@
+<?php 
+
+include_once("connect.php") 
+           
+?>
+
+<?php
+$name = $_POST["name"];
+
+$message = $_POST["comment"];
+
+$sendcomment = mysql_query("INSERT INTO comment SET  name='$name',  comment='$message' ");
+if($sendcomment){
+
+echo "<h1>Submission Successful</h1>";
+
+} else {
+echo "There was an error with the submission. ";
+}
+
+?>

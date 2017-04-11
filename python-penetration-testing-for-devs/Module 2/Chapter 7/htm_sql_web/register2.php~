@@ -1,0 +1,49 @@
+<html>
+<body background="PP02.JPG">
+<h1>Register YourSelf Today!!! </h1>
+<br>
+<form Name="sample" action="process.php" onsubmit="return validateForm()" method="POST">
+User-Name: <input type="text" name="user" />   <br>
+
+<br>
+Password: <input type="Password" name="pass" /> <br>
+
+First Name: <input type="text" name= "First" /> <br>
+Email: <input type="text" name= "email" /> <br>
+About: <input type="text" name= "About" /> <br>
+Date of birth <input type="text" name= "dateob" /> <br> 
+
+<input type="submit" value= "Register"/>
+
+<input type="submit" name="agree" value="Agree">
+	<input type="submit" name="disagree" value="Disagree">
+
+</form>
+
+<SCRIPT LANGUAGE="JavaScript">
+    <!-- Hide code from non-js browsers
+    function validateForm()
+    {
+        formObj = document.sample;
+        if ((formObj.user.value == "") ||
+            (formObj.pass.value  == "") ||
+		(formObj.First.value  == "")||
+			(formObj.email.value  == "")||
+					(formObj.About.value  == ""))
+            
+        {
+            alert("You have not filled in all the fields.");
+            return false;
+        }
+        else
+            return true;
+    }
+
+
+
+
+
+    // end hiding -->
+</SCRIPT>
+
+</body>

@@ -1,0 +1,6 @@
+<?php
+$dbhost = "localhost";
+$dbusername = "root";
+$dbpassword = "nemer123";
+$dbdatabase = "php90";
+?>

@@ -1,0 +1,11 @@
+<html>
+       <head>
+           <title>DOM-based XSS</title>
+       </head>
+       <body>
+       <script>
+           name = location.hash.substring(1);
+           document.write("<b>Hey "+unescape(name)+"! Nice to meet you</b>");
+           </script>
+       </body>
+</html>

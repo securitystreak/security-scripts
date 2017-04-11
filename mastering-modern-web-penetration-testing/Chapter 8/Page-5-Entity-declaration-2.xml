@@ -1,0 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE student [
+     <!ELEMENT student (#PCDATA)>
+     <!ENTITY sname SYSTEM "https://www.prakharprasad.com/external.xml">
+   ]>
+   <student>&sname;</student>

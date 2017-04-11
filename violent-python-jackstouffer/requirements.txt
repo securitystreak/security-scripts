@@ -1,0 +1,10 @@
+colorama==0.3.1
+docopt==0.6.2
+gevent==1.0.1
+greenlet==0.4.2
+grequests==0.2.0
+netaddr==0.7.11
+pexpect==3.2
+python-nmap==0.3.4
+requests==2.3.0
+wsgiref==0.1.2
