@@ -1,4 +1,3 @@
-# eBook build output
-*.epub
-*.mobi
+#Ebook output
 *.pdf
+*.epub

@@ -1,7 +1,7 @@
 
 # Security Scripts
 
-A collection of public offensive and defensive security related scripts. 
+A collection of public offensive and defensive security related scripts for InfoSec students. 
 
 Only run these in a controlled and authorized manner!
 
