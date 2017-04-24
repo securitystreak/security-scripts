@@ -1,0 +1,3 @@
+dnsrecon - DNS Records:dnsrecon -d [domain] -t std
+dnsrecon - DNS Transfer:dnsrecon -d [domain] -t axfr
+fierce:fierce -dns [domain]

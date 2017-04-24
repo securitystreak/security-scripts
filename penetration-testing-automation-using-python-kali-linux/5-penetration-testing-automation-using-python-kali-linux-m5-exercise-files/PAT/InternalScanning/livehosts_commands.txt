@@ -1,0 +1,2 @@
+Nmap Ping Scan: nmap -sn [ipAddress]
+Netbios Scan:nbtscan [ipAddress]

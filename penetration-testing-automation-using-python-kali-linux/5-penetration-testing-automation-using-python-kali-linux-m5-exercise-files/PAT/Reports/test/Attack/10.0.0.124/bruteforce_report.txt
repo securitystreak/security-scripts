@@ -1,0 +1,116 @@
+[+] Executing SSH...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2016-08-06 13:29:00
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 10 tasks per 1 server, overall 64 tasks, 18 login tries (l:3/p:6), ~0 tries per task
+[DATA] attacking service ssh on port 22
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "123456" - 1 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "qwerty" - 2 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "aaaaaaa" - 3 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "555555" - 4 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "admin" - 5 of 18 [child 4]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "administrator" - 6 of 18 [child 5]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "123456" - 7 of 18 [child 6]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "qwerty" - 8 of 18 [child 7]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "aaaaaaa" - 9 of 18 [child 8]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "555555" - 10 of 18 [child 9]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "admin" - 11 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "administrator" - 12 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "123456" - 13 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "qwerty" - 14 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "aaaaaaa" - 15 of 18 [child 4]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "555555" - 16 of 18 [child 6]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "admin" - 17 of 18 [child 5]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "administrator" - 18 of 18 [child 7]
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2016-08-06 13:29:15
+
+------------------------------------------------------------
+[+] Executing Telnet...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2016-08-06 13:29:15
+[WARNING] telnet is by its nature unreliable to analyze, if possible better choose FTP, SSH, etc. if available
+[DATA] max 10 tasks per 1 server, overall 64 tasks, 18 login tries (l:3/p:6), ~0 tries per task
+[DATA] attacking service telnet on port 23
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "123456" - 1 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "qwerty" - 2 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "aaaaaaa" - 3 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "555555" - 4 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "admin" - 5 of 18 [child 4]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "administrator" - 6 of 18 [child 5]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "123456" - 7 of 18 [child 6]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "qwerty" - 8 of 18 [child 7]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "aaaaaaa" - 9 of 18 [child 8]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "555555" - 10 of 18 [child 9]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "admin" - 11 of 18 [child 4]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "administrator" - 12 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "123456" - 13 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "qwerty" - 14 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "aaaaaaa" - 15 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "555555" - 16 of 18 [child 7]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "admin" - 17 of 18 [child 8]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "administrator" - 18 of 18 [child 6]
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2016-08-06 13:29:21
+
+------------------------------------------------------------
+[+] Executing MySQL...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2016-08-06 13:29:21
+[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)
+[DATA] max 4 tasks per 1 server, overall 64 tasks, 18 login tries (l:3/p:6), ~0 tries per task
+[DATA] attacking service mysql on port 3306
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "123456" - 1 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "qwerty" - 2 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "aaaaaaa" - 3 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "555555" - 4 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "admin" - 5 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "administrator" - 6 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "123456" - 7 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "qwerty" - 8 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "aaaaaaa" - 9 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "555555" - 10 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "admin" - 11 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "administrator" - 12 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "123456" - 13 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "qwerty" - 14 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "aaaaaaa" - 15 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "555555" - 16 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "admin" - 17 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "administrator" - 18 of 18 [child 0]
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2016-08-06 13:29:21
+
+------------------------------------------------------------
+[+] Executing FTP...
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2016-08-06 13:29:21
+[DATA] max 10 tasks per 1 server, overall 64 tasks, 18 login tries (l:3/p:6), ~0 tries per task
+[DATA] attacking service ftp on port 21
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "123456" - 1 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "qwerty" - 2 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "aaaaaaa" - 3 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "555555" - 4 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "admin" - 5 of 18 [child 4]
+[ATTEMPT] target 10.0.0.124 - login "root" - pass "administrator" - 6 of 18 [child 5]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "123456" - 7 of 18 [child 6]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "qwerty" - 8 of 18 [child 7]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "aaaaaaa" - 9 of 18 [child 8]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "555555" - 10 of 18 [child 9]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "admin" - 11 of 18 [child 0]
+[ATTEMPT] target 10.0.0.124 - login "admin" - pass "administrator" - 12 of 18 [child 4]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "123456" - 13 of 18 [child 1]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "qwerty" - 14 of 18 [child 2]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "aaaaaaa" - 15 of 18 [child 3]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "555555" - 16 of 18 [child 5]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "admin" - 17 of 18 [child 7]
+[ATTEMPT] target 10.0.0.124 - login "administrator" - pass "administrator" - 18 of 18 [child 6]
+1 of 1 target completed, 0 valid passwords found
+Hydra (http://www.thc.org/thc-hydra) finished at 2016-08-06 13:29:28
+
+------------------------------------------------------------

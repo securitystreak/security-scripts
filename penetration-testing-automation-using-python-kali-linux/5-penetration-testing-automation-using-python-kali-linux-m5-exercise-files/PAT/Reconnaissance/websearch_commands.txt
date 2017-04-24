@@ -1,0 +1,7 @@
+theHarvester - baidu:python theHarvester-master/theHarvester.py -d [domain] -b baidu
+theHarvester - bing:python theHarvester-master/theHarvester.py -d [domain] -b bing
+theHarvester - dogpilesearch:python theHarvester-master/theHarvester.py -d [domain] -b dogpilesearch
+theHarvester - google:python theHarvester-master/theHarvester.py -d [domain] -b google
+theHarvester - pgp:python theHarvester-master/theHarvester.py -d [domain] -b pgp
+theHarvester - yahoo:python theHarvester-master/theHarvester.py -d [domain] -b yahoo
+dmitry - netcraft:dmitry -n [domain]

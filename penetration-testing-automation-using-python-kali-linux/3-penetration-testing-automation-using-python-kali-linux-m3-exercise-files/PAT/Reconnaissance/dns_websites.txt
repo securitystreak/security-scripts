@@ -1,0 +1,2 @@
+http://www.myipneighbors.net/?s=[domain]
+http://www.dnsstuff.com/tools#dnsReport|type=domain&&value=[domain]

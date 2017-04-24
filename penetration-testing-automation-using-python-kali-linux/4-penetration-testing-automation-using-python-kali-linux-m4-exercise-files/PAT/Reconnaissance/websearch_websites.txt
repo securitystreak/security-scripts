@@ -1,0 +1,8 @@
+http://www.urlvoid.com/scan/[domain]
+https://www.shodan.io/search?query=[domain]
+http://pastebin.com/search?q=[domain]
+https://www.google.com/#q=site%3A[domain]
+https://www.google.com/#q=[name]
+http://www.[domain]
+https://www.censys.io/ipv4?q=[domain]
+https://www.censys.io/domain?q=[domain]

@@ -1,0 +1,3 @@
+dig:dig [domain]
+dmitry - whois:dmitry -w [domain]
+dmitry - whois IP:dmitry -i [domain]

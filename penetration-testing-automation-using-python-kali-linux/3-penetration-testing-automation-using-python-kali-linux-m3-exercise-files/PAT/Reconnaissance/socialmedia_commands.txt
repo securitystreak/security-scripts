@@ -1,0 +1,3 @@
+theHarvester - googleplus:python theHarvester-master/theHarvester.py -d [domain] -b googleplus
+theHarvester - linkedin:python theHarvester-master/theHarvester.py -d [domain] -b linkedin
+theHarvester - twitter:python theHarvester-master/theHarvester.py -d [domain] -b twitter

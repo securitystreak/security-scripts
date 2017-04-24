@@ -1,0 +1,2 @@
+dmitry - email:dmitry -e [domain]
+metasploit - email:msfconsole -x "use auxiliary/gather/search_email_collector; set DOMAIN $[domain]; run; exit y"

@@ -1,0 +1,76 @@
+[+] Executing Nmap Aggressive TCP port scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-07-10 11:32 EDT
+NSE: Loaded 132 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 11:32
+Completed NSE at 11:32, 0.00s elapsed
+Initiating NSE at 11:32
+Completed NSE at 11:32, 0.00s elapsed
+Initiating ARP Ping Scan at 11:32
+Scanning 10.0.0.109 [1 port]
+Completed ARP Ping Scan at 11:32, 0.02s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 11:32
+Completed Parallel DNS resolution of 1 host. at 11:32, 0.00s elapsed
+Initiating SYN Stealth Scan at 11:32
+Scanning guspc.home.lan (10.0.0.109) [1000 ports]
+Discovered open port 443/tcp on 10.0.0.109
+Discovered open port 912/tcp on 10.0.0.109
+Discovered open port 902/tcp on 10.0.0.109
+Completed SYN Stealth Scan at 11:32, 2.38s elapsed (1000 total ports)
+Initiating Service scan at 11:32
+Scanning 3 services on guspc.home.lan (10.0.0.109)
+Completed Service scan at 11:32, 12.39s elapsed (3 services on 1 host)
+Initiating OS detection (try #1) against guspc.home.lan (10.0.0.109)
+NSE: Script scanning 10.0.0.109.
+Initiating NSE at 11:32
+Completed NSE at 11:32, 8.03s elapsed
+Initiating NSE at 11:32
+Completed NSE at 11:32, 0.01s elapsed
+Nmap scan report for guspc.home.lan (10.0.0.109)
+Host is up (0.0013s latency).
+Not shown: 994 closed ports
+PORT    STATE    SERVICE         VERSION
+135/tcp filtered msrpc
+139/tcp filtered netbios-ssn
+443/tcp open     ssl/http        VMware VirtualCenter Web service
+| http-methods: 
+|_  Supported Methods: GET HEAD POST
+| ssl-cert: Subject: commonName=VMware/countryName=US
+| Issuer: commonName=VMware/countryName=US
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2016-02-29T22:19:54
+| Not valid after:  2017-02-28T22:19:54
+| MD5:   267f 9b60 c570 dff5 c2f8 2573 a132 eda3
+|_SHA-1: f3a9 9345 8f6b bd65 3164 a6f9 cdbd fae2 7782 94b6
+|_ssl-date: TLS randomness does not represent time
+445/tcp filtered microsoft-ds
+902/tcp open     ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+912/tcp open     vmware-auth     VMware Authentication Daemon 1.0 (Uses VNC, SOAP)
+MAC Address: 60:02:92:39:37:59 (Pegatron)
+Device type: general purpose
+Running: Microsoft Windows 10
+OS CPE: cpe:/o:microsoft:windows_10
+OS details: Microsoft Windows 10 build 10074 - 10240
+Uptime guess: 8.067 days (since Sat Jul  2 09:57:01 2016)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: Incremental
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.33 ms guspc.home.lan (10.0.0.109)
+
+NSE: Script Post-scanning.
+Initiating NSE at 11:32
+Completed NSE at 11:32, 0.00s elapsed
+Initiating NSE at 11:32
+Completed NSE at 11:32, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 27.38 seconds
+           Raw packets sent: 1125 (50.198KB) | Rcvd: 1014 (41.250KB)
+
+------------------------------------------------------------

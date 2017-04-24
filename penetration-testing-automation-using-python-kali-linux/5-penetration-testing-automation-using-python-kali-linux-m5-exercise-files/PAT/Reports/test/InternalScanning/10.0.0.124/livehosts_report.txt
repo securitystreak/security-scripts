@@ -1,0 +1,17 @@
+[+] Executing Nmap Ping Scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-06 13:27 EDT
+Nmap scan report for metasploitable.home.lan (10.0.0.124)
+Host is up (0.00023s latency).
+MAC Address: 00:0C:29:ED:07:AF (VMware)
+Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds
+
+------------------------------------------------------------
+[+] Executing Netbios Scan...
+Doing NBT name scan for addresses from 10.0.0.124
+
+IP address       NetBIOS Name     Server    User             MAC address      
+------------------------------------------------------------------------------
+10.0.0.124       METASPLOITABLE   <server>  METASPLOITABLE   00:00:00:00:00:00
+
+------------------------------------------------------------

@@ -1,0 +1,2 @@
+https://ewhois.com/analyze?domain=[domain]
+http://www.dnsstuff.com/tools#whois|type=domain&&value=[domain]

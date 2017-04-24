@@ -1,0 +1,14 @@
+[+] Executing Nmap Ping Scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-07-10 11:04 EDT
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 0.46 seconds
+
+------------------------------------------------------------
+[+] Executing Netbios Scan...
+Doing NBT name scan for addresses from 10.0.0.3
+
+IP address       NetBIOS Name     Server    User             MAC address      
+------------------------------------------------------------------------------
+
+------------------------------------------------------------

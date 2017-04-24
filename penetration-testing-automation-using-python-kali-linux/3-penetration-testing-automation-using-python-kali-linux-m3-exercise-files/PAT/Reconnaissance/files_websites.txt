@@ -1,0 +1,5 @@
+https://www.google.com/#q=filetype%3Axls+OR+filetype%3Axlsx+site%3A[domain]
+https://www.google.com/#q=filetype%3Appt+OR+filetype%3Apptx+site%3A[domain] 
+https://www.google.com/#q=filetype%3Adoc+OR+filetype%3Adocx+site%3A[domain]
+https://www.google.com/#q=filetype%3Apdf+site%3A[domain]
+https://www.google.com/#q=filetype%3Atxt+site%3A[domain]

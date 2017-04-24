@@ -1,0 +1,8 @@
+googfile - doc:python goofilev1.5/goofile.py -d [domain] -f doc
+googfile - docx:python goofilev1.5/goofile.py goofile -d [domain] -f docx
+googfile - pdf:python goofilev1.5/goofile.py goofile -d [domain] -f pdf
+googfile - ppt:python goofilev1.5/goofile.py goofile -d [domain] -f ppt
+googfile - pptx:python goofilev1.5/goofile.py goofile -d [domain] -f pptx
+googfile - txt:python goofilev1.5/goofile.py goofile -d [domain] -f txt
+googfile - xls:python goofilev1.5/goofile.py goofile -d [domain] -f xls
+googfile - xlsx:python goofilev1.5/goofile.py goofile -d [domain] -f xlsx

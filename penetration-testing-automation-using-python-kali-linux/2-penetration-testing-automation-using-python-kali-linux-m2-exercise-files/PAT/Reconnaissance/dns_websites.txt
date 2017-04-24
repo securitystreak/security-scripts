@@ -1,0 +1,2 @@
+http://www.kali.org
+http://www.python.org

@@ -1,0 +1,34 @@
+class MainClass {
+  void Main(CaseClass c) {
+    if (c) {
+      SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+      long offset, length;
+      if (ItemClass item = c.GetCurrentItem(offset, length)) {
+        ItemCacheClass itemCache(c);
+        LocalFileClass outputFile();
+        if ((FileClass inputFile = itemCache.GetRawFile(item)) &&
+            outputFile.Open(c.TemporaryFolder() + "\\" + item.Name(), FileClass::WRITE)) {
+          outputFile.WriteBuffer(inputFile);
+          String pythonPath = "C:\\Python27\\python.exe";
+          String pyScriptPath = "C:\\Python27\\EnCase\\Basic\\pyBasic.py";
+          String pyArgs = outputFile.Name();
+
+          ExecuteClass exe();
+          exe.SetFolder(pythonPath.GetFilePath());
+          exe.SetApplication(pythonPath);
+          exe.SetCommandLine(String::Format("\"{0}\" \"{1}\"", pyScriptPath, pyArgs));
+
+          if (exe.Start(LocalMachine, 1000)) {
+            Console.WriteLine(exe.Output());
+
+            BookmarkClass bmf(c.BookmarkRoot(), "Python Basic", NodeClass::FOLDER);
+            BookmarkClass note(bmf, "Python Basic Output " + item.Name());
+            note.SetComment(item.ItemPath() + "\n\n" + exe.Output());
+          }
+        }
+      }
+      Console.WriteLine("Done!\n{0}", SystemClass::LastError());
+    }
+  }
+}
+
